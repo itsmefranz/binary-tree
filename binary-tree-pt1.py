@@ -36,3 +36,6 @@ def in_order_traversal(self):
         elements += self.right.in_order_traversal()
 
     return elements
+
+if __name__ == '__main__':
+    numbers_tree = build_tree([17, 4, 1, 20, 9, 23, 18, 34])
