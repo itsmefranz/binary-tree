@@ -71,13 +71,17 @@ class BinarySearchTreeNode:
         if self.data == val:
             return True
         
+        # it is possible that the value might be in left subtree
         if val < self.data:
+            # checks if the left subtree has the value
             if self.left:
                 return self.left.search(val)
             else:
                 return False
 
+        # it is possible that the value might be in right subtree
         if val > self.data:
+            # checks if the left subtree has the value
             if self.right:
                 return self.right.search(val)
             else:
