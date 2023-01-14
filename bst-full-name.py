@@ -120,7 +120,11 @@ class BinarySearchTreeNode:
                     if self.right is None:
                         return self.left
 
-                    
+                    min_val = self.right.fin_min()
+                    self.data = min_val
+                    self.right = self.right.delete(min_val)
+
+                return self 
 
 def build_tree(full_name):
     root = BinarySearchTreeNode(full_name[0])
@@ -131,3 +135,14 @@ def build_tree(full_name):
     return root
 
 if __name__ == '__main__':
+    full_name_letters = ["D", "A", "N", "I", "E", "L", "L", "A", "F", "R", "A", "N", "C", "I", "N", "E", "V", "E", "L", "A", "S", "Q", "U", "E", "Z"]
+    full_name_letters_tree = build_tree(full_name_letters)
+    print(f"Full Name: DANIELLA FRANCINE VELASQUEZ")
+    print(f"This is In Order Traversal: {full_name_letters_tree.in_order_traversal()}")
+    print(f"This is Pre Order Traversal: {full_name_letters_tree.pre_order_traversal()}")
+    print(f"This is Post Order Traversal: {full_name_letters_tree.post_order_traversal()}")
+    print(f"Is there a letter N in my full name? {full_name_letters_tree.search('N')}")
+    print(f"This is the Minimum Value: {full_name_letters_tree.find_min()}")
+    print(f"This is the Maximum Value: {full_name_letters_tree.find_max()}")
+    full_name_letters_tree.delete("A")
+    print(f"After the deletion of the letter A, the newest in order traversal is {full_name_letters_tree.in_order_traversal()}")
