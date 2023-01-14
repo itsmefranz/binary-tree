@@ -20,3 +20,19 @@ def add_child(self,data):
         else:
             self.right = BinarySearchTreeNode(data)
 
+def in_order_traversal(self):
+    # this method returns a list of elements in a specific order
+    elements = []
+
+    # visit left tree
+    if self.left:
+        elements += self.left.in_order_traversal()
+
+    # visit base node
+    elements.append(self.data)
+
+    # visit right tree
+    if self.right:
+        elements += self.right.in_order_traversal()
+
+    return elements
