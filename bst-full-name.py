@@ -51,6 +51,22 @@ class BinarySearchTreeNode:
 
         return full_name
 
+    def post_order_traversal(self):
+        full_name = []
+
+        # visit left subtree
+        if self.left:
+            full_name += self.left.post_order_traversal()
+        
+        # visit left subtree
+        if self.right:
+            full_name += self.right.post_order_traversal()
+
+        #visit base node
+        full_name.append(self.data)
+
+        return full_name
+
     def search(self, val):
         if self.data == val:
             return True
